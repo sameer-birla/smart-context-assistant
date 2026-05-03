@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smart Context Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Smart Context Assistant</h1>
+  <p>Ask anything about study, exams, or productivity</p>
+
+  <input type="text" id="userInput" placeholder="Type your question...">
+  <button onclick="handleInput()">Ask</button>
+
+  <div>
+    <button onclick="quickAsk('exam tomorrow')">Exam Tomorrow</button>
+    <button onclick="quickAsk('study tips')">Study Tips</button>
+    <button onclick="quickAsk('I feel tired')">Feeling Tired</button>
+  </div>
+
+  <div>
+    <button onclick="showHistory()">Show History</button>
+    <button onclick="clearHistory()">Clear History</button>
+  </div>
+
+  <div class="response-box">
+    <p id="output">Your response will appear here...</p>
+  </div>
+</div>
+
+<!-- Firebase -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "PASTE_YOUR_KEY",
+    authDomain: "PASTE_YOUR_DOMAIN",
+    projectId: "smart-context-assistant",
+    storageBucket: "PASTE",
+    messagingSenderId: "PASTE",
+    appId: "PASTE"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  window.db = db;
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
